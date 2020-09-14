@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<application xmlns="http://ns.adobe.com/air/application/32.0">
+
+    <id>Main</id>
+
+    <!-- Used as the filename for the application. Required. -->
+    <filename>Main</filename>
+    <name>Main</name>
+    <versionNumber>0.0.0</versionNumber>
+
+    <!-- Identifies the ActionScript extensions used by an application. -->
+    <extensions>
+        <extensionID>com.tuarua.FreSharp</extensionID>
+        <extensionID>com.mycompany.HelloWorldANE</extensionID>
+    </extensions>
+
+    <!-- Settings for the application's initial window. Required. -->
+    <initialWindow>
+        <!-- The main SWF or HTML file of the application. Required. -->
+        <content>SWF file name is set automatically at compile time</content>
+        <visible>true</visible>
+    </initialWindow>
+
+</application>

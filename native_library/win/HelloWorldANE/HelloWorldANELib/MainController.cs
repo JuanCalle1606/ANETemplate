@@ -1,0 +1,68 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using TuaRua.FreSharp;
+using TuaRua.FreSharp.Exceptions;
+using FREObject = System.IntPtr;
+using FREContext = System.IntPtr;
+using Hwnd = System.IntPtr;
+
+// ReSharper disable UnusedMember.Global
+
+namespace HelloWorldLib {
+    public class MainController : FreSharpMainController {
+        private Hwnd _airWindow;
+
+        // Must have this function. It exposes the methods to our entry C++.
+        public string[] GetFunctions() {
+            FunctionsDict =
+                new Dictionary<string, Func<FREObject, uint, FREObject[], FREObject>> {
+                    {"init", InitController}
+                    , {"sayHello", SayHello}
+                };
+            return FunctionsDict.Select(kvp => kvp.Key).ToArray();
+        }
+
+        private FREObject SayHello(FREContext ctx, uint argc, FREObject[] argv) {
+            if (argv[0] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[1] == FREObject.Zero) return new FreArgException().RawValue;
+            if (argv[2] == FREObject.Zero) return new FreArgException().RawValue;
+
+            try {
+                var myString = argv[0].AsString();
+                var uppercase = argv[1].AsBool();
+                var numRepeats = argv[2].AsInt();
+
+                for (var i = 0; i < numRepeats; i++) {
+                    Trace(i);
+                }
+
+                var ret = myString;
+                if (uppercase) {
+                    ret = ret.ToUpper();
+                }
+
+                DispatchEvent("MY_EVENT", "ok");
+
+                return ret.ToFREObject();
+            }
+            catch (Exception e) {
+                return new FreException(e).RawValue; //return as3 error and throw in swc
+            }
+        }
+
+        private FREObject InitController(FREContext ctx, uint argc, FREObject[] argv) {
+            // get a reference to the AIR Window HWND
+            _airWindow = Process.GetCurrentProcess().MainWindowHandle;
+
+            // Turn on FreSharp logging
+            FreSharpLogger.GetInstance().Context = Context;
+
+            return FREObject.Zero;
+        }
+
+        public override void OnFinalize() { }
+        public override string TAG => "MainController";
+    }
+}
