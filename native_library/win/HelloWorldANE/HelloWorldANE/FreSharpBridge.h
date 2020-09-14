@@ -2,6 +2,7 @@
 #include "FlashRuntimeExtensions.h"
 #include <vector>
 #include "FreNamespace.h"
+#include <string>
 
 namespace FreSharpBridge {
 	using namespace System;
