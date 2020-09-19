@@ -1,3 +1,7 @@
+### Note:
+
+This is a copy of the [starter project](https://github.com/tuarua/FreSharp/tree/master/starter_project) folder from the cloned [TuaRua](https://github.com/tuarua) [FreSharp](https://github.com/tuarua/FreSharp) repository for use in my projects.
+
 # FreSharp Starter Project
 
 1. Modify AIR_PATH in native_extension\ane\build-windows.bat
