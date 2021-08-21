@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json.schemastore.org/template",
+    "author": "Juan Pablo Calle",
+    "classifications": [ "Extensions", "As3", "ANE"],
+    "identity": "ANETemplate",
+    "name": "FreSharp ANE",
+    "shortName": "ane",
+    "tags": {
+        "language": "[C#],As3",
+        "type": "project"
+    },
+    "sourceName": "HelloWorld",
+    "preferNameDirectory": true,
+    "defaultName": "HelloWorld",
+    "description": "As3 ANE template with FreSharp."
+}
