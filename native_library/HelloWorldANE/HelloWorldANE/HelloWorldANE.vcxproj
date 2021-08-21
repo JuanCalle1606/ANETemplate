@@ -156,7 +156,8 @@
       <AdditionalDependencies>FlashRuntimeExtensions.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>$(ProjectDir)..\..\..\..\native_extension\ane\build-windows.bat</Command>
+      <Command>$(ProjectDir)..\..\..\native_extension\ane\build-windows.bat</Command>
+      <Message>Creación de la ANE</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -179,7 +180,8 @@
       <AdditionalDependencies>FlashRuntimeExtensions.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>$(ProjectDir)..\..\..\..\native_extension\ane\build-windows.bat</Command>
+      <Command>$(ProjectDir)..\..\..\native_extension\ane\build-windows.bat</Command>
+      <Message>Creación de la ANE</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
